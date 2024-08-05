@@ -43,9 +43,9 @@ function Practice3() {
         </RoundSpan>
       </h1>
       <form onSubmit={onSubmit}>
-        <div class="input-group mb-3" style={{width :"500px", margin:"auto"}}>
-            <input type="text" class="form-control" placeholder="Write your to do..." aria-label="Write your to do..." aria-describedby="button-addon2" onChange={onChange} value={toDo}/>
-            <button class="btn btn-outline-secondary">Add To do</button>
+        <div className="input-group mb-3" style={{width :"500px", margin:"auto"}}>
+            <input type="text" className="form-control" placeholder="Write your to do..." aria-label="Write your to do..." aria-describedby="button-addon2" onChange={onChange} value={toDo}/>
+            <button className="btn btn-outline-secondary">Add To do</button>
         </div>
       </form>
       <ul className="list-group">

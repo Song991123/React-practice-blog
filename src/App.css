@@ -11,3 +11,11 @@
 .content-div{
   padding-top: 20px;
 }
+
+.form-select {
+  --bs-form-select-bg-img: url(./img/select_arrow.svg);
+  width: 500px;
+  margin: auto;
+  background-color:#212529;
+  color: white;
+}

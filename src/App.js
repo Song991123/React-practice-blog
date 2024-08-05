@@ -3,8 +3,8 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import Practice1 from "./practice/practice1";
 import Practice2 from "./practice/practice2";
 import Practice3 from "./practice/practice3";
+import Practice4 from "./practice/practice4";
 import { useState } from "react";
-import styled from "styled-components";
 
 
 function App() {
@@ -12,7 +12,6 @@ function App() {
   let [menuState, setMenuState] = useState('');
 
   return (
-    
     <div className="App">
       <nav className="navbar navbar-dark bg-dark">
         <div className="container-fluid">
@@ -20,7 +19,7 @@ function App() {
           <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation" onClick={() => {setMenuState('show')}}>
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className={`offcanvas offcanvas-end text-bg-dark ${menuState}`} tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+          <div className={`offcanvas offcanvas-end text-bg-dark ${menuState}`} tabIndex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
             <div className="offcanvas-header">
               <h5 className="offcanvas-title" id="offcanvasDarkNavbarLabel">Menu</h5>
               <button type="button" className="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close" onClick={() => {setMenuState('hiding')}}></button>
@@ -37,11 +36,14 @@ function App() {
                 <li className="nav-item">
                   <a className="nav-link" onClick={() =>{navigate('/Practice3')}}>Practice3</a>
                 </li>
+                <li className="nav-item">
+                  <a className="nav-link" onClick={() =>{navigate('/Practice4')}}>Practice4</a>
+                </li>
               </ul>
             </div> 
           </div>
           {
-            menuState === 'show' ?  <div className="offcanvas-backdrop fade show"></div> : null 
+            menuState === 'show' ?  <div className="offcanvas-backdrop fade show" onClick={() => {setMenuState('hiding')}}></div> : null 
           }
         </div>
       </nav>
@@ -51,6 +53,7 @@ function App() {
         <Route path="/Practice1" element={<Practice1 />}/>
         <Route path="/Practice2" element={<Practice2 />}/>
         <Route path="/Practice3" element={<Practice3 />}/> 
+        <Route path="/Practice4" element={<Practice4 />}/> 
       </Routes>
     </div>
   );
