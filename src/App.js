@@ -1,16 +1,13 @@
 import "./App.css";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { lazy, Suspense, useState } from "react";
-// import Practice1 from "./practice/practice1";
-// import Practice2 from "./practice/practice2";
-// import Practice3 from "./practice/practice3";
-// import Practice4 from "./practice/practice4";
 
 const Practice1 = lazy(() => import("./practice/practice1"));
 const Practice2 = lazy(() => import("./practice/practice2"));
 const Practice3 = lazy(() => import("./practice/practice3"));
 const Practice4 = lazy(() => import("./practice/practice4"));
-
+const Practice5 = lazy(() => import("./practice/practice5"));
+const MovieDetail = lazy(() => import("./routes/MovieDetail"));
 
 function App() {
   let navigate = useNavigate();
@@ -44,6 +41,9 @@ function App() {
                 <li className="nav-item">
                   <a className="nav-link" onClick={() =>{navigate('/Practice4')}}>Practice4</a>
                 </li>
+                <li className="nav-item">
+                  <a className="nav-link" onClick={() =>{navigate('/Practice5')}}>Practice5</a>
+                </li>
               </ul>
             </div> 
           </div>
@@ -54,11 +54,14 @@ function App() {
       </nav>
       <Suspense fallback={<div>로딩 중…</div>}>
         <Routes>
+          <Route path="*" element={<div className="content-div"><h3>404 page</h3><p>잘못된 접근입니다.</p></div>} />
           <Route path="/" element={<div className="content-div"><h3>마렌의 리엑트 연습용 블로그입니다.</h3></div>} />
           <Route path="/Practice1" element={<Practice1 />}/>
           <Route path="/Practice2" element={<Practice2 />}/>
           <Route path="/Practice3" element={<Practice3 />}/> 
           <Route path="/Practice4" element={<Practice4 />}/> 
+          <Route path="/Practice5" element={<Practice5 />}/>
+          <Route path="/Practice5/:id" element={<MovieDetail />}/>
         </Routes>
       </Suspense>
     </div>
