@@ -38,7 +38,7 @@ function Practice4() {
       <h1>The coins!</h1>
       <p>Total {coins.length.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}</p>
       <hr/>
-      {loading ? <Loading /> : null}
+      {loading ? <Loading/> : null}
       <h3>USD</h3>
       <form>
         <div

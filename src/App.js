@@ -1,6 +1,7 @@
 import "./App.css";
 import { Routes, Route, useNavigate } from "react-router-dom";
-import { lazy, Suspense, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
+import { useLocation } from 'react-router-dom';
 
 const Practice1 = lazy(() => import("./practice/practice1"));
 const Practice2 = lazy(() => import("./practice/practice2"));
@@ -10,9 +11,18 @@ const Practice5 = lazy(() => import("./practice/practice5"));
 const MovieDetail = lazy(() => import("./routes/MovieDetail"));
 
 function App() {
+  const location = useLocation();
   let navigate = useNavigate();
-  let [menuState, setMenuState] = useState('');
+  useEffect(() =>{
+    if(location.pathname.startsWith("/Practice5")){
+      document.querySelector('body').style.backgroundColor = 'black';
+    }
+    else{
+      document.querySelector('body').style.backgroundColor = 'white';
+    }
+  }, [location]);
 
+  let [menuState, setMenuState] = useState('');
   return (
     <div className="App">
       <nav className="navbar navbar-dark bg-dark">

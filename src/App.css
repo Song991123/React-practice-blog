@@ -1,6 +1,19 @@
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+}
+div#root {
+  height: 100%;
+}
+div.app {
+  height: 100%;
+}
 .App {
   text-align: center;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
 }
 
 .offcanvas-body .nav-item{
@@ -9,7 +22,7 @@
 }
 
 .content-div{
-  padding-top: 20px;
+  padding-top: 100px;
 }
 
 .form-select {
@@ -17,4 +30,9 @@
   margin: auto;
   background-color:#212529;
   color: white;
+}
+.navbar{
+  width: 100%;
+  position: fixed;
+  z-index: 999;
 }

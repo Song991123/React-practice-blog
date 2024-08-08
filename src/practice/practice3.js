@@ -32,7 +32,6 @@ function Practice3() {
     setToDos((current) => [...current, toDo]);
     setToDo("");
   };
-  console.log(toDos);
 
   return (
     <div className="content-div">

@@ -1,9 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Loading from "../components/loading";
 import playImg from "./../img/octicon-play-24.svg";
+import backArrow from "./../img/arrow-back.svg";
 
 let Detail = styled.div`
   display: flex;
@@ -25,27 +26,36 @@ let PlayMovie = styled.div`
 `;
 
 let MovieInfo = styled.div`
-    
+    color: white;
     .movie-description{
         width: 896px;
     }
 `;
+let BackArrow = styled.img`
+  width: 50px;
+  position: absolute;
+  left: 10px;
+  top: 80px;
+`;
 
 function MovieDetail() {
+  let navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [movieData, setMovieData] = useState([]);
   const { id } = useParams();
   
   function ConvertRuntime(runtime) {
     if (runtime) {
-      const time = Math.floor(runtime / 60);
+      const hours = Math.floor(runtime / 60);
       const minute = runtime % 60;
       if (minute) {
-        return `• ${Math.floor(runtime / 60)}시간 ${runtime % 60} 분`;
+        return hours ? `• ${hours}시간 ${minute} 분`: `• ${minute} 분`;
       }
-      return `• ${Math.floor(runtime / 60)}시간`;
+      return `• ${hours}시간`;
     }
+    return null;
   }
+
   useEffect(() => {
     getMovieDetail();
   }, []);
@@ -55,14 +65,14 @@ function MovieDetail() {
       `https://yts.mx/api/v2/movie_details.json?movie_id=${id}`
     );
     setMovieData(response.data.data.movie);
-    console.log(response.data.data.movie);
     setLoading(false);
   };
 
   return (
     <div className="content-div">
+      <BackArrow src={backArrow} onClick={() => {navigate(-1)}} style={{cursor:"pointer"}}></BackArrow>
       {loading ? (
-        <Loading />
+        <Loading lodingColor="white"/>
       ) : (
         <Detail>
           <div className="Detail-info">
@@ -71,7 +81,7 @@ function MovieDetail() {
                 className="theater-img"
                 src={movieData.background_image_original}
               />
-              <img className="octicon-play-24" src={playImg} />
+              <img className="octicon-play-24" src={playImg} onClick={()=>{window.open(movieData.url)}}/>
             </PlayMovie>
             <MovieInfo>
               <img className="poster-img" src={movieData.medium_cover_image} />
@@ -81,7 +91,7 @@ function MovieDetail() {
                 <span>rate : {movieData.rating}</span>
                 <span>like : {movieData.like_count}</span>
               </div>
-              <div>
+              <div key={id}>
                 {movieData.genres.map((genre) => {
                     return(
                         <div>{genre}</div>
