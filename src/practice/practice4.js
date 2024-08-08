@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Loading from "../components/loading";
 import axios from "axios";
+import selectArrow from "./../img/select_arrow.svg";
 
 function Practice4() {
   const [loading, setLoading] = useState(true);
@@ -62,6 +63,7 @@ function Practice4() {
             aria-label="Disabled select example"
             value={chooseindex}
             onChange={onSelect}
+            style={{backgroundImage: `url(${selectArrow})`}}
           >
             {coins.map(function (coin, index) {
               return (
