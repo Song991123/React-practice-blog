@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/React-practice-blog/static/css/main.83f1bfcc.css",
-    "main.js": "/React-practice-blog/static/js/main.e4cdcb84.js",
+    "main.css": "/React-practice-blog/static/css/main.feb0960d.css",
+    "main.js": "/React-practice-blog/static/js/main.20af8205.js",
     "static/js/468.933fb1cc.chunk.js": "/React-practice-blog/static/js/468.933fb1cc.chunk.js",
     "static/js/557.7de7a38e.chunk.js": "/React-practice-blog/static/js/557.7de7a38e.chunk.js",
     "static/js/814.db9088ac.chunk.js": "/React-practice-blog/static/js/814.db9088ac.chunk.js",
     "static/js/778.30f08b7e.chunk.js": "/React-practice-blog/static/js/778.30f08b7e.chunk.js",
-    "static/js/868.fe63150d.chunk.js": "/React-practice-blog/static/js/868.fe63150d.chunk.js",
-    "static/js/661.387550a4.chunk.js": "/React-practice-blog/static/js/661.387550a4.chunk.js",
+    "static/js/868.81685bde.chunk.js": "/React-practice-blog/static/js/868.81685bde.chunk.js",
+    "static/js/661.908833ba.chunk.js": "/React-practice-blog/static/js/661.908833ba.chunk.js",
     "static/js/453.07b51e5c.chunk.js": "/React-practice-blog/static/js/453.07b51e5c.chunk.js",
     "static/js/561.b1174285.chunk.js": "/React-practice-blog/static/js/561.b1174285.chunk.js",
     "static/js/213.aa817197.chunk.js": "/React-practice-blog/static/js/213.aa817197.chunk.js",
@@ -15,20 +15,20 @@
     "static/media/octicon-play-24.svg": "/React-practice-blog/static/media/octicon-play-24.0b8e63e83e5c4055031b87246c340695.svg",
     "static/media/select_arrow.svg": "/React-practice-blog/static/media/select_arrow.49f3b5a5f694e1ca0df8ca3cedd3aa2d.svg",
     "static/media/arrow-back.svg": "/React-practice-blog/static/media/arrow-back.10fd89d409e4688c4672a3674de2c249.svg",
-    "main.83f1bfcc.css.map": "/React-practice-blog/static/css/main.83f1bfcc.css.map",
-    "main.e4cdcb84.js.map": "/React-practice-blog/static/js/main.e4cdcb84.js.map",
+    "main.feb0960d.css.map": "/React-practice-blog/static/css/main.feb0960d.css.map",
+    "main.20af8205.js.map": "/React-practice-blog/static/js/main.20af8205.js.map",
     "468.933fb1cc.chunk.js.map": "/React-practice-blog/static/js/468.933fb1cc.chunk.js.map",
     "557.7de7a38e.chunk.js.map": "/React-practice-blog/static/js/557.7de7a38e.chunk.js.map",
     "814.db9088ac.chunk.js.map": "/React-practice-blog/static/js/814.db9088ac.chunk.js.map",
     "778.30f08b7e.chunk.js.map": "/React-practice-blog/static/js/778.30f08b7e.chunk.js.map",
-    "868.fe63150d.chunk.js.map": "/React-practice-blog/static/js/868.fe63150d.chunk.js.map",
-    "661.387550a4.chunk.js.map": "/React-practice-blog/static/js/661.387550a4.chunk.js.map",
+    "868.81685bde.chunk.js.map": "/React-practice-blog/static/js/868.81685bde.chunk.js.map",
+    "661.908833ba.chunk.js.map": "/React-practice-blog/static/js/661.908833ba.chunk.js.map",
     "453.07b51e5c.chunk.js.map": "/React-practice-blog/static/js/453.07b51e5c.chunk.js.map",
     "561.b1174285.chunk.js.map": "/React-practice-blog/static/js/561.b1174285.chunk.js.map",
     "213.aa817197.chunk.js.map": "/React-practice-blog/static/js/213.aa817197.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.83f1bfcc.css",
-    "static/js/main.e4cdcb84.js"
+    "static/css/main.feb0960d.css",
+    "static/js/main.20af8205.js"
   ]
 }
