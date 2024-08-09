@@ -42,13 +42,9 @@ const CardDiv = styled.div`
     flex-wrap: wrap;
     gap: 30px;
     color: white;
-    margin-left: 30px;
-    img{
-      aspect-ratio: 2 / 3;
-      position: absolute;
-    }
+    justify-content: center;
+
     .poster{
-      background-color: black;
       position: relative;
       width: 230px;
       height: 345px;

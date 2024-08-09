@@ -33,6 +33,9 @@ div.app {
 }
 .navbar{
   width: 100%;
+  min-width: 323px;
   position: fixed;
   z-index: 999;
 }
+
+
