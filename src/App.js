@@ -9,6 +9,9 @@ const Practice3 = lazy(() => import("./practice/practice3"));
 const Practice4 = lazy(() => import("./practice/practice4"));
 const Practice5 = lazy(() => import("./practice/practice5"));
 const MovieDetail = lazy(() => import("./routes/MovieDetail"));
+const Practice6 = lazy(() => import("./practice/practice6"));
+
+
 
 function App() {
   const location = useLocation();
@@ -54,6 +57,9 @@ function App() {
                 <li className="nav-item">
                   <a className="nav-link" onClick={() =>{navigate('/Practice5')}}>Practice5</a>
                 </li>
+                <li className="nav-item">
+                  <a className="nav-link" onClick={() =>{navigate('/Practice6')}}>Practice6</a>
+                </li>
               </ul>
             </div> 
           </div>
@@ -72,6 +78,7 @@ function App() {
           <Route path="/Practice4" element={<Practice4 />}/> 
           <Route path="/Practice5" element={<Practice5 />}/>
           <Route path="/Practice5/:id" element={<MovieDetail />}/>
+          <Route path="/Practice6" element={<Practice6 />}/>
         </Routes>
       </Suspense>
     </div>
