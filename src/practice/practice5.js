@@ -13,16 +13,16 @@ function Practice5() {
   let movies = useSelector((state) => {
     return state.movies;
   });
-  const { data, loading, error, refetch } = useAxios({
+  const { data, loading, error } = useAxios({
     url: "https://yts.mx/api/v2/list_movies.json?minimum_rating=9&sort_by=year"
   });
 
 
   useEffect(() => {
   // 영화 데이터가 없는 경우와 로딩이 완료된 후에만 dispatch 실행
-  if (movies.length === 0 && !loading && data) {
-    dispatch(setMovies(data.data.data.movies));
-  }
+    if (movies.length === 0 && !loading && data) {
+      dispatch(setMovies(data.data.data.movies));
+    }
   });
 
   return (
