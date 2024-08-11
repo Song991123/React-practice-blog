@@ -19,9 +19,10 @@ function Practice5() {
 
 
   useEffect(() => {
-    if(movies.length === 0 && !loading){
-      dispatch(setMovies(data.data.data.movies));
-    }
+  // 영화 데이터가 없는 경우와 로딩이 완료된 후에만 dispatch 실행
+  if (movies.length === 0 && !loading && data) {
+    dispatch(setMovies(data.data.data.movies));
+  }
   });
 
   return (
