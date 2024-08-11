@@ -4,24 +4,24 @@ import Loading from "../components/loading";
 import axios from "axios";
 import Movie from "../components/Movies";
 import styled from "styled-components";
+import { useAxios } from "../hooks/useAxios";
 
 
 function Practice5() {
-  const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
 
-  useEffect(() => {
-    getMovies();
-  }, []);
+  const { data, loading, error, refetch } = useAxios({
+    url: "https://yts.mx/api/v2/list_movies.json?minimum_rating=9&sort_by=year"
+  });
 
-  const getMovies = async () => {
-    //axios(비동기방식)를 동기방식처럼 동작할 수 있도록 await 사용.
-    const response = await axios.get(
-      "https://yts.mx/api/v2/list_movies.json?minimum_rating=9&sort_by=year"
-    );
-    setMovies(response.data.data.movies);
-    setLoading(false);
-  };
+
+  useEffect(() => {
+    if(!loading){
+      // console.log(data.data.data.movies);
+      setMovies(data.data.data.movies);
+    }
+  },[]);
+  console.log("test");
 
   return (
     <div className="content-div">
