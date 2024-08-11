@@ -1,30 +1,33 @@
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import Loading from "../components/loading";
 import axios from "axios";
 import Movie from "../components/Movies";
 import styled from "styled-components";
 import { useAxios } from "../hooks/useAxios";
+import { setMovies } from "../store";
 
 
 function Practice5() {
-  const [movies, setMovies] = useState([]);
-
+  let dispatch = useDispatch();
+  let movies = useSelector((state) => {
+    return state.movies;
+  });
   const { data, loading, error, refetch } = useAxios({
     url: "https://yts.mx/api/v2/list_movies.json?minimum_rating=9&sort_by=year"
   });
 
 
   useEffect(() => {
-    if(!loading){
-      setMovies(data.data.data.movies);
+    if(movies.length === 0 && !loading){
+      dispatch(setMovies(data.data.data.movies));
     }
   },[]);
-  console.log("test");
 
   return (
     <div className="content-div">
-      {loading ? <Loading lodingColor="white"/> : null}
+      {movies.length === 0 && loading ? <Loading lodingColor="white"/> : null}
       <CardDiv>
       {movies.map((movie) => {
         return (
