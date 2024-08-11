@@ -17,7 +17,6 @@ function Practice5() {
 
   useEffect(() => {
     if(!loading){
-      // console.log(data.data.data.movies);
       setMovies(data.data.data.movies);
     }
   },[]);
