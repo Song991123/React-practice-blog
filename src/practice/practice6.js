@@ -50,8 +50,12 @@ function Practice6() {
   const reference = useRef();
 
   useEffect(() => {
-    setTimeout(() => reference.current.focus(), 500);
-    setTimeout(() => titleUpdater("Practice6"), 500);
+    const focusTimer = setTimeout(() => reference.current.focus(), 500);
+    const titleTimer = setTimeout(() => titleUpdater("Practice6"), 500);
+    return () => {
+      clearTimeout(focusTimer);
+      clearTimeout(titleTimer);
+    };
   }, []);
 
   useBeforeLeave(begForLife);
@@ -82,7 +86,7 @@ function Practice6() {
         <h3>UseTabs</h3>
         <BtnBox>
             {content.map((section, index) => (
-            <BlackBtn onClick={() => changeItem(index)}>{section.tab}</BlackBtn>
+              <BlackBtn key={index} onClick={() => changeItem(index)}>{section.tab}</BlackBtn>
             ))}
         </BtnBox>
         <div>{currentItem.content}</div>
