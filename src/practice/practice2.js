@@ -1,13 +1,6 @@
-import styled from "styled-components";
 import PropTypes from "prop-types";
+import { BlackBtn } from "../styled/Btn";
 
-let BlackBtn = styled.button`
-  background-color: black;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 10px;
-  border: none;
-`;
 
 function Practice2() {
 //   const text = 'string값으로 변경하면 오류가 안뜨고';
