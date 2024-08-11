@@ -1,23 +1,23 @@
 import { useEffect, useState } from "react";
 import Loading from "../components/loading";
-import axios from "axios";
 import selectArrow from "./../img/select_arrow.svg";
+import { useAxios } from "../hooks/useAxios";
 
 function Practice4() {
-  const [loading, setLoading] = useState(true);
   const [coins, setCoins] = useState([]);
   const [InputValue, SetInputValue] = useState(1);
   const [chooseindex, setChooseIndex] = useState(0);
 
-  useEffect(() => {
-    axios
-      .get("https://api.coinpaprika.com/v1/tickers")
-      .then(function (response) {
-        setCoins(response.data);
-        setLoading(false);
-      });
-  }, []);
+  const { data, loading, error } = useAxios({
+    url: "https://api.coinpaprika.com/v1/tickers"
+  });
 
+  useEffect(() => {
+    if(data && !loading){
+      setCoins(data.data);
+    }
+  })
+  
   const onChange = (e) => {
     SetInputValue(e.target.value);
   };
@@ -26,7 +26,7 @@ function Practice4() {
   };
 
   const USDToCoin = () => {
-    if (InputValue === "") {
+    if (InputValue === "" || coins.length === 0) {
       return null;
     }
     let CanBuyCoin = InputValue / coins[chooseindex].quotes.USD.price;
