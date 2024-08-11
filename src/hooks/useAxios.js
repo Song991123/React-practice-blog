@@ -1,6 +1,13 @@
-import defaultAxios from "axios";
+import defaultAxios, { Axios } from "axios";
 import { useEffect, useState } from "react";
 
+/**
+ * @name useAxios
+ * @param {string} opts 요청할 url
+ * @param {Axios} axiosInstance 
+ * @returns state, refetch()
+ * @description axios 요청을 받고, refetch까지 할 수 있게 만들어주는 hook
+ */
 export const useAxios = (opts, axiosInstance = defaultAxios) => {
   const [state, setState] = useState({
     loading: true,
