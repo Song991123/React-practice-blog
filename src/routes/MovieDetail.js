@@ -5,6 +5,7 @@ import styled from "styled-components";
 import Loading from "../components/loading";
 import playImg from "./../img/octicon-play-24.svg";
 import backArrow from "./../img/arrow-back.svg";
+import { useAxios } from "../hooks/useAxios";
 
 let Detail = styled.div`
   display: flex;
@@ -81,8 +82,8 @@ let GenreBadge = styled.span`
 
 function MovieDetail() {
   let navigate = useNavigate();
-  const [loading, setLoading] = useState(true);
   const [movieData, setMovieData] = useState([]);
+  const [imageLoaded, setImageLoaded] = useState(false);
   const { id } = useParams();
 
   function ConvertRuntime(runtime) {
@@ -111,18 +112,16 @@ function MovieDetail() {
     );
     return creatStar;
   }
+  const { data, loading, error, refetch } = useAxios({
+    url: `https://yts.mx/api/v2/movie_details.json?movie_id=${id}`
+  });
 
   useEffect(() => {
-    getMovieDetail();
-  }, []);
+    if (data && !loading) {
+      setMovieData(data.data.data.movie);
+    }
+  }, [data, loading]);
 
-  const getMovieDetail = async () => {
-    const response = await axios.get(
-      `https://yts.mx/api/v2/movie_details.json?movie_id=${id}`
-    );
-    setMovieData(response.data.data.movie);
-    setLoading(false);
-  };
 
   return (
     <div className="content-div">
@@ -142,15 +141,23 @@ function MovieDetail() {
               <img
                 className="theater-img"
                 src={movieData.background_image_original}
+                onLoad={() => setImageLoaded(true)}
               />
-              <img
-                className="octicon-play-24"
-                src={playImg}
-                onClick={() => {
-                  window.open(movieData.url);
-                }}
-              />
+              {
+                imageLoaded && (
+                  <img
+                  className="octicon-play-24"
+                  src={playImg}
+                  onClick={() => {
+                    window.open(movieData.url);
+                  }}
+                />
+                )
+              }
+
             </PlayMovie>
+            {
+                imageLoaded && (
             <MovieInfo>
               <div className="movie-Info">
                 <img
@@ -183,7 +190,7 @@ function MovieDetail() {
                     </div>
                   </div>
                   <div key={id}>
-                    {movieData.genres.map((genre) => {
+                    {movieData.genres && movieData.genres.map((genre) => {
                       return <GenreBadge>{genre}</GenreBadge>;
                     })}
                   </div>
@@ -193,6 +200,7 @@ function MovieDetail() {
                 {movieData.description_full}
               </div>
             </MovieInfo>
+                )}
           </div>
         </Detail>
       )}

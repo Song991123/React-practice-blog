@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import Loading from "../components/loading";
-import axios from "axios";
 import Movie from "../components/Movies";
 import styled from "styled-components";
 import { useAxios } from "../hooks/useAxios";
@@ -20,10 +19,11 @@ function Practice5() {
 
 
   useEffect(() => {
-    if(movies.length === 0 && !loading){
-      dispatch(setMovies(data.data.data.movies));
-    }
-  },[]);
+  // 영화 데이터가 없는 경우와 로딩이 완료된 후에만 dispatch 실행
+  if (movies.length === 0 && !loading && data) {
+    dispatch(setMovies(data.data.data.movies));
+  }
+  });
 
   return (
     <div className="content-div">
